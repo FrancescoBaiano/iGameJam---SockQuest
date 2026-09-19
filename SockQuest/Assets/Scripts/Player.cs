@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     [Header("Scarpa")]
-    [SerializeField] private bool inShoes;
+    [SerializeField] public bool inShoes;
     [SerializeField] private float shoeMoveSpeed = 3f;
     [SerializeField] private float shoeExitJumpForce = 12f;
 
@@ -172,8 +172,6 @@ public class Player : MonoBehaviour
         float currentSpeed = inShoes ? shoeMoveSpeed : moveSpeed;
         float desiredMoveX = moveInput * currentSpeed;
 
-        // Se sto andando verso un muro, azzero la componente orizzontale
-        // (funziona anche a mezz'aria, evitando che il player resti "incastrato" contro la parete)
         if (desiredMoveX > 0f && isTouchingWallRight) desiredMoveX = 0f;
         if (desiredMoveX < 0f && isTouchingWallLeft) desiredMoveX = 0f;
 
@@ -191,9 +189,6 @@ public class Player : MonoBehaviour
     {
         facingRight = !facingRight;
         GetComponentInChildren<SpriteRenderer>().flipX = !GetComponentInChildren<SpriteRenderer>().flipX;
-        //Vector3 scale = transform.localScale;
-        //scale.x *= -1f;
-        //transform.localScale = scale;
     }
 
     private void OnDrawGizmosSelected()
