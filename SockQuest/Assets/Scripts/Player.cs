@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     [SerializeField] private string actionMapName = "Player";
     [SerializeField] private string moveActionName = "Move";
     [SerializeField] private string jumpActionName = "Jump";
+    [SerializeField] private string shoeActionMapName = "Scarpa";
+    [SerializeField] private string shoeMoveActionName = "Move";
+    [SerializeField] private string shoeJumpActionName = "Jump";
 
     [Header("Movimento")]
     [SerializeField] private float moveSpeed = 6f;
@@ -19,6 +22,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.15f;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Scarpa")]
+    [SerializeField] private bool inShoes;
+    [SerializeField] private float shoeMoveSpeed = 3f;
+    [SerializeField] private float shoeExitJumpForce = 12f;
+
     [Header("Controllo muri")]
     [SerializeField] private Transform wallCheckRight;
     [SerializeField] private Transform wallCheckLeft;
@@ -26,11 +34,21 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask wallLayer;
 
     private Rigidbody2D rb;
-    private InputAction moveAction;
+    private Shoos currentShoe;
+
+    private InputActionMap playerMap;
+    private InputActionMap shoeMap;
+
+    private InputAction playerMoveAction;
     private InputAction jumpAction;
+    private InputAction shoeMoveAction;
+    private InputAction shoeJumpAction;
+
+    private InputAction activeMoveAction;
 
     private float moveInput;
     private bool jumpPressed;
+    private bool shoeExitJumpPressed;
     private bool isGrounded;
     private bool isTouchingWallRight;
     private bool isTouchingWallLeft;
@@ -40,33 +58,86 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        var map = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
-        moveAction = map.FindAction(moveActionName, throwIfNotFound: true);
-        jumpAction = map.FindAction(jumpActionName, throwIfNotFound: true);
+        playerMap = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
+        shoeMap = inputActions.FindActionMap(shoeActionMapName, throwIfNotFound: true);
+
+        playerMoveAction = playerMap.FindAction(moveActionName, throwIfNotFound: true);
+        jumpAction = playerMap.FindAction(jumpActionName, throwIfNotFound: true);
+        shoeMoveAction = shoeMap.FindAction(shoeMoveActionName, throwIfNotFound: true);
+        shoeJumpAction = shoeMap.FindAction(shoeJumpActionName, throwIfNotFound: true);
     }
 
     private void OnEnable()
     {
-        moveAction.Enable();
-        jumpAction.Enable();
         jumpAction.performed += OnJumpPerformed;
+        shoeJumpAction.performed += OnShoeJumpPerformed;
+        ApplyMovementMode(inShoes);
     }
 
     private void OnDisable()
     {
         jumpAction.performed -= OnJumpPerformed;
-        moveAction.Disable();
-        jumpAction.Disable();
+        shoeJumpAction.performed -= OnShoeJumpPerformed;
+        playerMap.Disable();
+        shoeMap.Disable();
+    }
+
+    // Da chiamare dallo script che gestisce l'ingresso/uscita dalla scarpa
+    public void EnterShoe(Shoos shoe)
+    {
+        if (inShoes) return;
+        currentShoe = shoe;
+        inShoes = true;
+        ApplyMovementMode(true);
+    }
+
+    public void ExitShoe()
+    {
+        if (!inShoes) return;
+        inShoes = false;
+        ApplyMovementMode(false);
+
+        // Notifica solo la scarpa per la pulizia (unparent, riabilita collider):
+        // OnPlayerExited NON deve richiamare ExitShoe(), altrimenti si crea un loop infinito.
+        if (currentShoe != null)
+        {
+            currentShoe.OnPlayerExited();
+            currentShoe = null;
+        }
+    }
+
+    private void ApplyMovementMode(bool useShoe)
+    {
+        if (useShoe)
+        {
+            playerMap.Disable();
+            shoeMap.Enable();
+            activeMoveAction = shoeMoveAction;
+        }
+        else
+        {
+            shoeMap.Disable();
+            playerMap.Enable();
+            activeMoveAction = playerMoveAction;
+        }
     }
 
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
-        jumpPressed = true;
+        // La Jump action fa parte solo della map "Player", quindi in scarpa
+        // non viene nemmeno invocata (map disabilitata): il controllo su inShoes
+        // resta comunque come sicurezza extra.
+        if (!inShoes) jumpPressed = true;
+    }
+
+    private void OnShoeJumpPerformed(InputAction.CallbackContext ctx)
+    {
+        if (inShoes) shoeExitJumpPressed = true;
     }
 
     private void Update()
     {
-        moveInput = moveAction.ReadValue<float>();
+        moveInput = activeMoveAction.ReadValue<float>();
 
         isGrounded = groundCheck != null &&
                      Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -79,7 +150,17 @@ public class Player : MonoBehaviour
         if (jumpPressed)
         {
             jumpPressed = false;
-            if (isGrounded) Jump();
+            if (isGrounded && !inShoes) Jump();
+        }
+
+        if (shoeExitJumpPressed)
+        {
+            shoeExitJumpPressed = false;
+            if (inShoes)
+            {
+                ExitShoe();
+                Jump(shoeExitJumpForce);
+            }
         }
 
         if (moveInput > 0 && !facingRight) Flip();
@@ -88,7 +169,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float desiredMoveX = moveInput * moveSpeed;
+        float currentSpeed = inShoes ? shoeMoveSpeed : moveSpeed;
+        float desiredMoveX = moveInput * currentSpeed;
 
         // Se sto andando verso un muro, azzero la componente orizzontale
         // (funziona anche a mezz'aria, evitando che il player resti "incastrato" contro la parete)
@@ -98,10 +180,11 @@ public class Player : MonoBehaviour
         rb.linearVelocity = new Vector2(desiredMoveX, rb.linearVelocity.y);
     }
 
-    private void Jump()
+    private void Jump(float force = -1f)
     {
+        if (force < 0f) force = jumpForce;
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
     }
 
     private void Flip()
@@ -129,14 +212,13 @@ public class Player : MonoBehaviour
     public void DisablePlayer()
     {
         rb.simulated = false;
-        moveAction.Disable();
-        jumpAction.Disable();
+        playerMap.Disable();
+        shoeMap.Disable();
     }
 
     public void EnablePlayer()
     {
         rb.simulated = true;
-        moveAction.Enable();
-        jumpAction.Enable();
+        ApplyMovementMode(inShoes);
     }
 }

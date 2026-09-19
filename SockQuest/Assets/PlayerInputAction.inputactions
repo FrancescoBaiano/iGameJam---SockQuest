@@ -3,7 +3,7 @@
     "name": "PlayerInputAction",
     "maps": [
         {
-            "name": "Gameplay",
+            "name": "Player",
             "id": "d0a61756-0d81-4328-bd6b-16e1045cc541",
             "actions": [
                 {
@@ -30,6 +30,17 @@
                     "name": "",
                     "id": "4eddb190-e257-4240-8bf0-6f15e3741987",
                     "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c1ab7ab-fde7-44ca-ba21-5f873e545ecd",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -69,6 +80,76 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                }
+            ]
+        },
+        {
+            "name": "Scarpa",
+            "id": "bd9caa6e-4d34-45b5-85e1-83da58c72cca",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "d9898a11-b2a8-4a1f-a055-e639d7fd11a8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "8f354f34-2569-4735-85c5-48f3e916389e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "d2a257bb-5f52-4a2e-b4ad-949d4f0c43cb",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "36245a24-cd85-4c0d-86fb-bf476ecc5485",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "946397eb-f84e-45c4-bf7b-ccc16a233263",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5d438b89-7a24-4c84-ac69-feaef0b1949b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
