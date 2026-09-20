@@ -14,15 +14,27 @@ public class Shoos : MonoBehaviour
     [Header("Uscita")]
     [SerializeField] private float exitJumpForce = 12f;
 
+    [Header("Movimento autonomo")]
+    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private Transform wallCheckRight;
+    [SerializeField] private Transform wallCheckLeft;
+    [SerializeField] private float wallCheckRadius = 0.15f;
+    [SerializeField] private LayerMask wallLayer;
+
     private InputAction jumpAction;
 
     private Player currentPlayer;
     private Rigidbody2D currentPlayerRb;
 
+    private int direction = 1; // 1 = destra, -1 = sinistra
+    private SpriteRenderer spriteRenderer;
+
     private void Awake()
     {
         var map = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
         jumpAction = map.FindAction(jumpActionName, throwIfNotFound: true);
+
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -38,6 +50,26 @@ public class Shoos : MonoBehaviour
     private void Start()
     {
         GetComponent<BoxCollider2D>().isTrigger = true;
+    }
+
+    private void Update()
+    {
+        HandleAutonomousMovement();
+    }
+
+    private void HandleAutonomousMovement()
+    {
+        bool touchingRight = wallCheckRight != null &&
+                              Physics2D.OverlapCircle(wallCheckRight.position, wallCheckRadius, wallLayer);
+        bool touchingLeft = wallCheckLeft != null &&
+                             Physics2D.OverlapCircle(wallCheckLeft.position, wallCheckRadius, wallLayer);
+
+        if (direction > 0 && touchingRight) direction = -1;
+        else if (direction < 0 && touchingLeft) direction = 1;
+
+        transform.Translate(Vector2.right * direction * moveSpeed * Time.deltaTime);
+
+        if (spriteRenderer != null) spriteRenderer.flipX = direction < 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -94,5 +126,12 @@ public class Shoos : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         GetComponent<BoxCollider2D>().enabled = true;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.magenta;
+        if (wallCheckRight != null) Gizmos.DrawWireSphere(wallCheckRight.position, wallCheckRadius);
+        if (wallCheckLeft != null) Gizmos.DrawWireSphere(wallCheckLeft.position, wallCheckRadius);
     }
 }
