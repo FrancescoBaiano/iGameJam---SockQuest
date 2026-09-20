@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 1028027203662659349}
   - component: {fileID: 8625602479539369617}
   - component: {fileID: 1913518700228674509}
+  - component: {fileID: 7069074630214962146}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -271,7 +272,6 @@ MonoBehaviour:
   moveActionName: Move
   jumpActionName: Jump
   shoeActionMapName: Scarpa
-  shoeMoveActionName: Move
   shoeJumpActionName: Jump
   moveSpeed: 6
   jumpForce: 6
@@ -281,15 +281,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   inShoes: 0
-  shoeMoveSpeed: 3
   shoeExitJumpForce: 6
   points: 0
+  pointText: {fileID: 0}
   wallCheckRight: {fileID: 8580318451005115349}
   wallCheckLeft: {fileID: 1510121443674151771}
   wallCheckRadius: 0.15
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
+  moveAnimThreshold: 0.05
 --- !u!50 &8625602479539369617
 Rigidbody2D:
   serializedVersion: 5
@@ -363,3 +364,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &7069074630214962146
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8447075925786888430}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a124df019432e8418814fa271062b39, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
