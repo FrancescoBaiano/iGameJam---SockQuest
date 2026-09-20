@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: a69a34412386a474a9165bbf3bc7062f
+guid: aef9a9c863042f44690903a1828b8166
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2723112814795741104
-    second: scarpe-No calzino_0
+      213: -359294367801528903
+    second: scarpe-Con calzino(1)_0
   - first:
-      213: 535498837246284307
-    second: scarpe-No calzino_1
+      213: 8761162307172331209
+    second: scarpe-Con calzino(1)_1
   - first:
-      213: -1440776047668378812
-    second: scarpe-No calzino_2
+      213: -1694354627194804529
+    second: scarpe-Con calzino(1)_2
   - first:
-      213: 2304826047920540423
-    second: scarpe-No calzino_3
+      213: -3305133723855442204
+    second: scarpe-Con calzino(1)_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scarpe-No calzino_0
+      name: scarpe-Con calzino(1)_0
       rect:
         serializedVersion: 2
-        x: 1332
+        x: 32
         y: 0
-        width: 2564
-        height: 2768
+        width: 64
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b7d6396da07ac520800000000000000
-      internalID: 2723112814795741104
+      spriteID: 9bd24651da7830bf0800000000000000
+      internalID: -359294367801528903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: scarpe-No calzino_1
+      name: scarpe-Con calzino(1)_1
       rect:
         serializedVersion: 2
-        x: 6457
+        x: 157
         y: 0
-        width: 2564
-        height: 2871
+        width: 64
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 31213b3fa597e6700800000000000000
-      internalID: 535498837246284307
+      spriteID: 9ce6c8223b6e59970800000000000000
+      internalID: 8761162307172331209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: scarpe-No calzino_2
+      name: scarpe-Con calzino(1)_2
       rect:
         serializedVersion: 2
-        x: 11582
-        y: 101
-        width: 2564
-        height: 3282
+        x: 282
+        y: 1
+        width: 64
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 443c5d571d5510ce0800000000000000
-      internalID: -1440776047668378812
+      spriteID: fc6a38291717c78e0800000000000000
+      internalID: -1694354627194804529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: scarpe-No calzino_3
+      name: scarpe-Con calzino(1)_3
       rect:
         serializedVersion: 2
-        x: 16707
+        x: 407
         y: 0
-        width: 2564
-        height: 2768
+        width: 64
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 70b0f5f34136cff10800000000000000
-      internalID: 2304826047920540423
+      spriteID: 4eeae66b36ec122d0800000000000000
+      internalID: -3305133723855442204
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      scarpe-No calzino_0: 2723112814795741104
-      scarpe-No calzino_1: 535498837246284307
-      scarpe-No calzino_2: -1440776047668378812
-      scarpe-No calzino_3: 2304826047920540423
+      scarpe-Con calzino(1)_0: -359294367801528903
+      scarpe-Con calzino(1)_1: 8761162307172331209
+      scarpe-Con calzino(1)_2: -1694354627194804529
+      scarpe-Con calzino(1)_3: -3305133723855442204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
