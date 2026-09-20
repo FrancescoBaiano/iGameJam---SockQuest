@@ -21,7 +21,11 @@ public class Shoos : MonoBehaviour
     [SerializeField] private float wallCheckRadius = 0.15f;
     [SerializeField] private LayerMask wallLayer;
 
+    // Nome/hash del parametro dell'Animator
+    private static readonly int AnimPlayerInside = Animator.StringToHash("playerInside");
+
     private InputAction jumpAction;
+    private Animator animator;
 
     private Player currentPlayer;
     private Rigidbody2D currentPlayerRb;
@@ -35,6 +39,7 @@ public class Shoos : MonoBehaviour
         jumpAction = map.FindAction(jumpActionName, throwIfNotFound: true);
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -101,6 +106,8 @@ public class Shoos : MonoBehaviour
         // Riabilito SOLO l'azione Jump (stessa action usata dal player normalmente),
         // senza toccare il resto della map che il player ha appena disabilitato.
         jumpAction.Enable();
+
+        if (animator != null) animator.SetBool(AnimPlayerInside, true);
     }
 
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
@@ -123,6 +130,8 @@ public class Shoos : MonoBehaviour
 
         currentPlayer = null;
         currentPlayerRb = null;
+
+        if (animator != null) animator.SetBool(AnimPlayerInside, false);
 
         yield return new WaitForSeconds(1f);
         GetComponent<BoxCollider2D>().enabled = true;

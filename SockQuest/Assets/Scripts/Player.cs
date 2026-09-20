@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.15f;
     [SerializeField] private LayerMask groundLayer;
 
+    public Transform GroundCheck => groundCheck;
+    public float GroundCheckRadius => groundCheckRadius;
 
     [Header("Collectables")]
     [SerializeField] public int points = 0;
@@ -100,7 +102,7 @@ public class Player : MonoBehaviour
         if (jumpPressed)
         {
             jumpPressed = false;
-            if (isGrounded) Jump();
+            if (isGrounded && !inShoe) Jump();
         }
 
         if (moveInput > 0 && !facingRight) Flip();
@@ -130,6 +132,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (inShoe) return;
+
         float desiredMoveX = moveInput * moveSpeed;
 
         if (desiredMoveX > 0f && isTouchingWallRight) desiredMoveX = 0f;
@@ -167,13 +171,11 @@ public class Player : MonoBehaviour
     public void DisablePlayer()
     {
         rb.simulated = false;
-        playerMap.Disable();
     }
 
     public void EnablePlayer()
     {
         rb.simulated = true;
-        playerMap.Enable();
     }
 
     public void UpdatePoints()
