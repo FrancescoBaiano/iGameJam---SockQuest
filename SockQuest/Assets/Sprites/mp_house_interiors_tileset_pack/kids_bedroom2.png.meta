@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: 11cebf570aec74a469001e4e789e0ed9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6175015438185147798
+    second: kids_bedroom2_0
+  - first:
+      213: -3126057342949780318
+    second: kids_bedroom2_1
+  - first:
+      213: 3839745062551791003
+    second: kids_bedroom2_2
+  - first:
+      213: 1529484122186274520
+    second: kids_bedroom2_3
+  - first:
+      213: -4256472074105544535
+    second: kids_bedroom2_4
+  - first:
+      213: -7156631674680377625
+    second: kids_bedroom2_5
+  - first:
+      213: -2007817960007639364
+    second: kids_bedroom2_6
+  - first:
+      213: -1114351778734426357
+    second: kids_bedroom2_7
+  - first:
+      213: 405912833472994417
+    second: kids_bedroom2_8
+  - first:
+      213: 6172771455242408614
+    second: kids_bedroom2_9
+  - first:
+      213: 6487899135844022924
+    second: kids_bedroom2_10
+  - first:
+      213: -805160612940980031
+    second: kids_bedroom2_11
+  - first:
+      213: 7036996957495746495
+    second: kids_bedroom2_12
+  - first:
+      213: -8632295436858629323
+    second: kids_bedroom2_13
+  - first:
+      213: -1774807448017868730
+    second: kids_bedroom2_14
+  - first:
+      213: -651750328264511697
+    second: kids_bedroom2_15
+  - first:
+      213: -7941045489898695106
+    second: kids_bedroom2_16
+  - first:
+      213: 6694529059157484164
+    second: kids_bedroom2_17
+  - first:
+      213: 4888061432669581659
+    second: kids_bedroom2_18
+  - first:
+      213: 1971351189250211980
+    second: kids_bedroom2_19
+  - first:
+      213: 9212940367004834301
+    second: kids_bedroom2_20
+  - first:
+      213: -909961524229573288
+    second: kids_bedroom2_21
+  - first:
+      213: 4214040728237546959
+    second: kids_bedroom2_22
+  - first:
+      213: 1556520832746816493
+    second: kids_bedroom2_23
+  - first:
+      213: -1079420557525631226
+    second: kids_bedroom2_24
+  - first:
+      213: -1883012216471904750
+    second: kids_bedroom2_25
+  - first:
+      213: -7431831447439564960
+    second: kids_bedroom2_26
+  - first:
+      213: -4807262133171542771
+    second: kids_bedroom2_27
+  - first:
+      213: -3455390734430569958
+    second: kids_bedroom2_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kids_bedroom2_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 130
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69d249b03df02b550800000000000000
+      internalID: 6175015438185147798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 160
+        width: 50
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a41afdb8630e94d0800000000000000
+      internalID: -3126057342949780318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 138
+        width: 50
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95a5716ac3894530800000000000000
+      internalID: 3839745062551791003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 111
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d65380a4b1d93510800000000000000
+      internalID: 1529484122186274520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_4
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 134
+        width: 31
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a0a19a4339fde4c0800000000000000
+      internalID: -4256472074105544535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 133
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eefd5ac8698eac90800000000000000
+      internalID: -7156631674680377625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_6
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 95
+        width: 60
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbe5818043cc224e0800000000000000
+      internalID: -2007817960007639364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_7
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 79
+        width: 69
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b07b5b916f60980f0800000000000000
+      internalID: -1114351778734426357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_8
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 95
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17c1ee8429712a500800000000000000
+      internalID: 405912833472994417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_9
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 95
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2156d0fe61aa550800000000000000
+      internalID: 6172771455242408614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_10
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 95
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8afb82c3e5a90a50800000000000000
+      internalID: 6487899135844022924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_11
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 111
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c0648e30be73d4f0800000000000000
+      internalID: -805160612940980031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_12
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 95
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbfd901037f68a160800000000000000
+      internalID: 7036996957495746495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_13
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 95
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 533e0d9390de33880800000000000000
+      internalID: -8632295436858629323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_14
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 111
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6486d24870e9e57e0800000000000000
+      internalID: -1774807448017868730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_15
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 111
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2fac81978484f6f0800000000000000
+      internalID: -651750328264511697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_16
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 96
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e36de5d433dbbc190800000000000000
+      internalID: -7941045489898695106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_17
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 111
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 482ac9dc5beb7ec50800000000000000
+      internalID: 6694529059157484164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_18
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 95
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b51be8699f1e5d340800000000000000
+      internalID: 4888061432669581659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_19
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 28
+        width: 66
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c808dc24675ab5b10800000000000000
+      internalID: 1971351189250211980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_20
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 63
+        width: 50
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df91e289370fadf70800000000000000
+      internalID: 9212940367004834301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_21
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 63
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855f50d90da2f53f0800000000000000
+      internalID: -909961524229573288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_22
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 63
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd90a327b74b7a30800000000000000
+      internalID: 4214040728237546959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_23
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 31
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de38e59537fd99510800000000000000
+      internalID: 1556520832746816493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_24
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 31
+        width: 50
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f3e61d8b02501f0800000000000000
+      internalID: -1079420557525631226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_25
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 31
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21e9871ad523ed5e0800000000000000
+      internalID: -1883012216471904750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_26
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 31
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f99c09ca4dcd890800000000000000
+      internalID: -7431831447439564960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_27
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 31
+        width: 26
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d05af125f8c294db0800000000000000
+      internalID: -4807262133171542771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kids_bedroom2_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1af61a3f6cfb00d0800000000000000
+      internalID: -3455390734430569958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      kids_bedroom2_0: 6175015438185147798
+      kids_bedroom2_1: -3126057342949780318
+      kids_bedroom2_10: 6487899135844022924
+      kids_bedroom2_11: -805160612940980031
+      kids_bedroom2_12: 7036996957495746495
+      kids_bedroom2_13: -8632295436858629323
+      kids_bedroom2_14: -1774807448017868730
+      kids_bedroom2_15: -651750328264511697
+      kids_bedroom2_16: -7941045489898695106
+      kids_bedroom2_17: 6694529059157484164
+      kids_bedroom2_18: 4888061432669581659
+      kids_bedroom2_19: 1971351189250211980
+      kids_bedroom2_2: 3839745062551791003
+      kids_bedroom2_20: 9212940367004834301
+      kids_bedroom2_21: -909961524229573288
+      kids_bedroom2_22: 4214040728237546959
+      kids_bedroom2_23: 1556520832746816493
+      kids_bedroom2_24: -1079420557525631226
+      kids_bedroom2_25: -1883012216471904750
+      kids_bedroom2_26: -7431831447439564960
+      kids_bedroom2_27: -4807262133171542771
+      kids_bedroom2_28: -3455390734430569958
+      kids_bedroom2_3: 1529484122186274520
+      kids_bedroom2_4: -4256472074105544535
+      kids_bedroom2_5: -7156631674680377625
+      kids_bedroom2_6: -2007817960007639364
+      kids_bedroom2_7: -1114351778734426357
+      kids_bedroom2_8: 405912833472994417
+      kids_bedroom2_9: 6172771455242408614
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
