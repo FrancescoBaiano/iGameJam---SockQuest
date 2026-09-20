@@ -70,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,6 +129,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -136,10 +162,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 65
         y: 0
-        width: 160
-        height: 160
+        width: 70
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,10 +184,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_1
       rect:
         serializedVersion: 2
-        x: 160
+        x: 225
         y: 0
-        width: 160
-        height: 160
+        width: 70
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,10 +206,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_2
       rect:
         serializedVersion: 2
-        x: 320
+        x: 378
         y: 0
-        width: 160
-        height: 160
+        width: 67
+        height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +228,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_3
       rect:
         serializedVersion: 2
-        x: 480
+        x: 535
         y: 0
-        width: 160
-        height: 160
+        width: 70
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,10 +250,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_4
       rect:
         serializedVersion: 2
-        x: 640
+        x: 698
         y: 0
-        width: 160
-        height: 160
+        width: 67
+        height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +272,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_5
       rect:
         serializedVersion: 2
-        x: 800
+        x: 865
         y: 0
-        width: 160
-        height: 160
+        width: 70
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,10 +294,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_6
       rect:
         serializedVersion: 2
-        x: 960
+        x: 1025
         y: 0
-        width: 160
-        height: 160
+        width: 70
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,10 +316,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_7
       rect:
         serializedVersion: 2
-        x: 1120
+        x: 1185
         y: 0
-        width: 160
-        height: 160
+        width: 70
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,10 +338,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_8
       rect:
         serializedVersion: 2
-        x: 1280
+        x: 1355
         y: 0
-        width: 160
-        height: 160
+        width: 68
+        height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,10 +360,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_9
       rect:
         serializedVersion: 2
-        x: 1440
+        x: 1515
         y: 0
-        width: 160
-        height: 160
+        width: 70
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -356,10 +382,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_10
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 1675
         y: 0
-        width: 160
-        height: 160
+        width: 68
+        height: 67
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +404,10 @@ TextureImporter:
       name: calzini accoppiati-Idle 1_11
       rect:
         serializedVersion: 2
-        x: 1760
+        x: 1825
         y: 0
-        width: 160
-        height: 160
+        width: 70
+        height: 65
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,7 +436,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":12.0,"y":1.0},"gridSpriteSize":{"x":160.0,"y":160.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":75.0,"y":70.0},"gridSpriteOffset":{"x":62.0,"y":90.0},"gridSpritePadding":{"x":81.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       calzini accoppiati-Idle 1_0: 1652944469997982884
       calzini accoppiati-Idle 1_1: 3578860134290504243

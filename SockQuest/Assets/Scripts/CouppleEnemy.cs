@@ -35,10 +35,25 @@ public class CouppleEnemy : MonoBehaviour
     [Header("Pausa Post-Spinta")]
     [SerializeField] private float postPushPauseDuration = 2.0f;
 
+    [Header("Animazioni")]
+    [SerializeField] private float chaseAnimSpeed = 2f;
+    [SerializeField] private float normalAnimSpeed = 1f;
+
+    [Header("Sprite")]
+    [Tooltip("Attiva SOLO se l'artwork di base del nemico guarda già a sinistra invece che a destra. " +
+             "Corregge il verso in cui viene flippato lo sprite senza toccare la logica di movimento/visione.")]
+    [SerializeField] private bool spriteFacesLeftByDefault = false;
+
     [Header("Debug")]
     [SerializeField] private bool showDebugLogs = true;
 
+    // Nomi/hash dei parametri dell'Animator
+    private static readonly int AnimIsAttacking = Animator.StringToHash("isAttacking");
+    private static readonly int AnimMove = Animator.StringToHash("Move");
+
     private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private State currentState = State.Patrolling;
 
     private Transform currentPatrolTarget;
@@ -52,8 +67,12 @@ public class CouppleEnemy : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         currentPatrolTarget = pointB != null ? pointB : pointA;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        ApplySpriteFacing();
     }
 
     private void Update()
@@ -164,6 +183,8 @@ public class CouppleEnemy : MonoBehaviour
         playerRb = player.GetComponent<Rigidbody2D>();
         pushTimer = pushInterval;
         currentState = State.Chasing;
+
+        if (animator != null) animator.speed = chaseAnimSpeed;
     }
 
     private void Chase()
@@ -193,6 +214,7 @@ public class CouppleEnemy : MonoBehaviour
         float currentDist = Mathf.Abs(distanceX);
         if (pushTimer >= pushInterval && currentDist <= pushRange)
         {
+            animator.speed = normalAnimSpeed;
             PushPlayer(direction);
 
             currentState = State.Cooldown;
@@ -219,6 +241,9 @@ public class CouppleEnemy : MonoBehaviour
             {
                 pushTimer = 0f;
                 currentState = State.Chasing;
+
+                // L'attacco è finito, si riprende a muoversi
+                if (animator != null) animator.SetTrigger(AnimMove);
             }
             else
             {
@@ -232,6 +257,8 @@ public class CouppleEnemy : MonoBehaviour
         if (playerRb == null) return;
 
         if (showDebugLogs) Debug.Log("[Nemico] *** ESECUZIONE SPINTA EFFETTUATA ***");
+
+        if (animator != null) animator.SetTrigger(AnimIsAttacking);
 
         Vector2 forceVector = new Vector2(direction * pushForce, pushUpForce);
 
@@ -257,8 +284,17 @@ public class CouppleEnemy : MonoBehaviour
         cooldownTimer = 0f;
         currentState = State.Patrolling;
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+
+        if (animator != null)
+        {
+            animator.speed = normalAnimSpeed;
+            animator.SetTrigger(AnimMove);
+        }
     }
 
+    // direction > 0 = si sta muovendo/deve guardare verso destra; direction < 0 = verso sinistra.
+    // facingRight riflette SEMPRE questo significato standard: non invertirla qui per problemi
+    // di sprite, usa invece "spriteFacesLeftByDefault" più sotto.
     private void FaceDirection(float direction)
     {
         if (direction > 0f && !facingRight) Flip();
@@ -268,8 +304,16 @@ public class CouppleEnemy : MonoBehaviour
     private void Flip()
     {
         facingRight = !facingRight;
-        SpriteRenderer sr = GetComponentInChildren<SpriteRenderer>();
-        if (sr != null) sr.flipX = !sr.flipX;
+        ApplySpriteFacing();
+    }
+
+    // Unico punto in cui la direzione logica (facingRight) viene tradotta nel flip
+    // visivo dello sprite. Se il tuo artwork guarda già a sinistra di base, attiva
+    // "spriteFacesLeftByDefault" nell'Inspector invece di toccare FaceDirection/Flip.
+    private void ApplySpriteFacing()
+    {
+        if (spriteRenderer == null) return;
+        spriteRenderer.flipX = spriteFacesLeftByDefault ? facingRight : !facingRight;
     }
 
     private void OnDrawGizmosSelected()
