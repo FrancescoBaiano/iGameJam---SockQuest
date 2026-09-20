@@ -320,10 +320,10 @@ TextureImporter:
       name: kids_bedroom_7
       rect:
         serializedVersion: 2
-        x: 95
+        x: 96
         y: 95
-        width: 50
-        height: 27
+        width: 48
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
