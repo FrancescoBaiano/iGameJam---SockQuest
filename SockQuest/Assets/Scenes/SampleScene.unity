@@ -185,10 +185,11 @@ MonoBehaviour:
   pushInterval: 0.1
   pushForce: 4
   pushUpForce: 4
-  pushRange: 0.8
+  pushRange: 0.85
   postPushPauseDuration: 2
   chaseAnimSpeed: 2
   normalAnimSpeed: 1
+  spriteFacesLeftByDefault: 1
   showDebugLogs: 1
 --- !u!212 &80364118
 SpriteRenderer:
@@ -239,7 +240,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 2574894414641970069, guid: 3345d8d9f98e23e49ad7b586637605ed, type: 3}
+  m_Sprite: {fileID: 1652944469997982884, guid: 24aae65265b12a74abeb502564292ccb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -287,7 +288,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.94, y: 1.26}
+    oldSize: {x: 0.7, y: 0.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
