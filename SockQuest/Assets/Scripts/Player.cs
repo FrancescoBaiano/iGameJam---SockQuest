@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float shoeMoveSpeed = 3f;
     [SerializeField] private float shoeExitJumpForce = 12f;
 
+    [Header("Collectables")]
+    [SerializeField] public int points = 0;
+
     [Header("Controllo muri")]
     [SerializeField] private Transform wallCheckRight;
     [SerializeField] private Transform wallCheckLeft;
