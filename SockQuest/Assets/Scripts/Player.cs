@@ -58,6 +58,9 @@ public class Player : MonoBehaviour
     private bool isTouchingWallLeft;
     private bool facingRight = true;
 
+    private bool isKnockedBack;
+    private float knockbackTimer;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -89,10 +92,27 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        moveInput = moveAction.ReadValue<float>();
+        // 1. Calcoliamo PRIMA se il player è a terra
+        isGrounded = groundCheck != null && Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        isGrounded = groundCheck != null &&
-                     Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        // 2. Gestione del Knockback basato sull'atterraggio
+        if (isKnockedBack)
+        {
+            // Decrementa il piccolo timer di sicurezza iniziale (0.1s)
+            if (knockbackTimer > 0f)
+            {
+                knockbackTimer -= Time.deltaTime;
+            }
+            // Quando il timer minimo è passato E il player tocca di nuovo il terreno -> Sblocca i comandi
+            else if (isGrounded)
+            {
+                isKnockedBack = false;
+            }
+
+            return; // Salta la lettura degli input finché non è atterrato
+        }
+
+        moveInput = moveAction.ReadValue<float>();
 
         isTouchingWallRight = wallCheckRight != null &&
                                Physics2D.OverlapCircle(wallCheckRight.position, wallCheckRadius, wallLayer);
@@ -109,6 +129,19 @@ public class Player : MonoBehaviour
         else if (moveInput < 0 && facingRight) Flip();
 
         UpdateAnimator();
+    }
+
+    private void FixedUpdate()
+    {
+        // MODIFICA FONDAMENTALE: Se è in corso la spinta o se è nella scarpa, non sovrascrivere la fisica
+        if (inShoe || isKnockedBack) return;
+
+        float desiredMoveX = moveInput * moveSpeed;
+
+        if (desiredMoveX > 0f && isTouchingWallRight) desiredMoveX = 0f;
+        if (desiredMoveX < 0f && isTouchingWallLeft) desiredMoveX = 0f;
+
+        rb.linearVelocity = new Vector2(desiredMoveX, rb.linearVelocity.y);
     }
 
     private void UpdateAnimator()
@@ -128,18 +161,6 @@ public class Player : MonoBehaviour
     public void Alive()
     {
         if (animator != null) animator.SetTrigger(AnimAlive);
-    }
-
-    private void FixedUpdate()
-    {
-        if (inShoe) return;
-
-        float desiredMoveX = moveInput * moveSpeed;
-
-        if (desiredMoveX > 0f && isTouchingWallRight) desiredMoveX = 0f;
-        if (desiredMoveX < 0f && isTouchingWallLeft) desiredMoveX = 0f;
-
-        rb.linearVelocity = new Vector2(desiredMoveX, rb.linearVelocity.y);
     }
 
     private void Jump(float force = -1f)
@@ -180,6 +201,15 @@ public class Player : MonoBehaviour
 
     public void UpdatePoints()
     {
-        pointText.text = points.ToString();
+        if (pointText != null)
+            pointText.text = points.ToString();
+    }
+
+    public void ApplyKnockback(Vector2 force, float duration)
+    {
+        // Usa il riferimento rb già presente nell'istanza
+        rb.linearVelocity = force;
+        isKnockedBack = true;
+        knockbackTimer = duration;
     }
 }
