@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 3345d8d9f98e23e49ad7b586637605ed
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2574894414641970069
+    second: calzini accoppiati-Calci(1)_0
+  - first:
+      213: 2428263382839595111
+    second: calzini accoppiati-Calci(1)_1
+  - first:
+      213: -7547199548432229062
+    second: calzini accoppiati-Calci(1)_2
+  - first:
+      213: -6324375880880065600
+    second: calzini accoppiati-Calci(1)_3
+  - first:
+      213: -5425289499751579704
+    second: calzini accoppiati-Calci(1)_4
+  - first:
+      213: 1725745438018993527
+    second: calzini accoppiati-Calci(1)_5
+  - first:
+      213: 3853977554128225038
+    second: calzini accoppiati-Calci(1)_6
+  - first:
+      213: 1428679093393413131
+    second: calzini accoppiati-Calci(1)_7
+  - first:
+      213: 6329981363296050470
+    second: calzini accoppiati-Calci(1)_8
+  - first:
+      213: 8464627880263009976
+    second: calzini accoppiati-Calci(1)_9
+  - first:
+      213: 2413303010667899324
+    second: calzini accoppiati-Calci(1)_10
+  - first:
+      213: -397760349480418605
+    second: calzini accoppiati-Calci(1)_11
+  - first:
+      213: 4827079124514928954
+    second: calzini accoppiati-Calci(1)_12
+  - first:
+      213: 1085621146326517830
+    second: calzini accoppiati-Calci(1)_13
+  - first:
+      213: 4102493465516728397
+    second: calzini accoppiati-Calci(1)_14
+  - first:
+      213: 177206117264645845
+    second: calzini accoppiati-Calci(1)_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 94
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b3fd6e3dcdbb320800000000000000
+      internalID: 2574894414641970069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_1
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 6
+        width: 109
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7601e336eace2b120800000000000000
+      internalID: 2428263382839595111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_2
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 0
+        width: 102
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d55ba5ff5f24790800000000000000
+      internalID: -7547199548432229062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_3
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 6
+        width: 99
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c37812f4ad4b38a0800000000000000
+      internalID: -6324375880880065600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_4
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 11
+        width: 97
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cf76a3c1ff75b4b0800000000000000
+      internalID: -5425289499751579704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_5
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 14
+        width: 94
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77d7fdd155413f710800000000000000
+      internalID: 1725745438018993527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_6
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 0
+        width: 94
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e03442e8a241c7530800000000000000
+      internalID: 3853977554128225038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_7
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 6
+        width: 109
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b04ddb3e010b3d310800000000000000
+      internalID: 1428679093393413131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_8
+      rect:
+        serializedVersion: 2
+        x: 1322
+        y: 0
+        width: 102
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62d9a12238c98d750800000000000000
+      internalID: 6329981363296050470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_9
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 6
+        width: 99
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6c1f6a536687570800000000000000
+      internalID: 8464627880263009976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_10
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 0
+        width: 94
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9ad3e4d46cd7120800000000000000
+      internalID: 2413303010667899324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_11
+      rect:
+        serializedVersion: 2
+        x: 1802
+        y: 6
+        width: 109
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d20c7fc11fda7af0800000000000000
+      internalID: -397760349480418605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_12
+      rect:
+        serializedVersion: 2
+        x: 1962
+        y: 11
+        width: 107
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a397a6783ea3df240800000000000000
+      internalID: 4827079124514928954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_13
+      rect:
+        serializedVersion: 2
+        x: 2122
+        y: 14
+        width: 104
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 648c1734ea6e01f00800000000000000
+      internalID: 1085621146326517830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_14
+      rect:
+        serializedVersion: 2
+        x: 2282
+        y: 0
+        width: 102
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d406c79221cfee830800000000000000
+      internalID: 4102493465516728397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: calzini accoppiati-Calci(1)_15
+      rect:
+        serializedVersion: 2
+        x: 2442
+        y: 6
+        width: 99
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ded5975600957200800000000000000
+      internalID: 177206117264645845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ecddaf53ce1351440b67564762aa3ed4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      calzini accoppiati-Calci(1)_0: 2574894414641970069
+      calzini accoppiati-Calci(1)_1: 2428263382839595111
+      calzini accoppiati-Calci(1)_10: 2413303010667899324
+      calzini accoppiati-Calci(1)_11: -397760349480418605
+      calzini accoppiati-Calci(1)_12: 4827079124514928954
+      calzini accoppiati-Calci(1)_13: 1085621146326517830
+      calzini accoppiati-Calci(1)_14: 4102493465516728397
+      calzini accoppiati-Calci(1)_15: 177206117264645845
+      calzini accoppiati-Calci(1)_2: -7547199548432229062
+      calzini accoppiati-Calci(1)_3: -6324375880880065600
+      calzini accoppiati-Calci(1)_4: -5425289499751579704
+      calzini accoppiati-Calci(1)_5: 1725745438018993527
+      calzini accoppiati-Calci(1)_6: 3853977554128225038
+      calzini accoppiati-Calci(1)_7: 1428679093393413131
+      calzini accoppiati-Calci(1)_8: 6329981363296050470
+      calzini accoppiati-Calci(1)_9: 8464627880263009976
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
