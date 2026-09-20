@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DeathBox : MonoBehaviour
 {
-    [SerializeField] Transform SpawnPoint;
+    [SerializeField] Transform spawnPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,8 +26,13 @@ public class DeathBox : MonoBehaviour
     private IEnumerator RepositionPlayer(Player player)
     {
         player.DisablePlayer();
+        player.Die();
         yield return new WaitForSeconds(2f);
-        player.transform.position = SpawnPoint.position;
+        if (spawnPoint != null)
+            player.transform.position = spawnPoint.position;
+        else
+            player.transform.position = Vector3.zero;
         player.EnablePlayer();
+        player.Alive();
     }
 }

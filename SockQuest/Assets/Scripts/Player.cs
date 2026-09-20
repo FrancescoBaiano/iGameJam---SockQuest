@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,6 @@ public class Player : MonoBehaviour
     [SerializeField] private string moveActionName = "Move";
     [SerializeField] private string jumpActionName = "Jump";
     [SerializeField] private string shoeActionMapName = "Scarpa";
-    [SerializeField] private string shoeMoveActionName = "Move";
     [SerializeField] private string shoeJumpActionName = "Jump";
 
     [Header("Movimento")]
@@ -24,17 +24,29 @@ public class Player : MonoBehaviour
 
     [Header("Scarpa")]
     [SerializeField] public bool inShoes;
-    [SerializeField] private float shoeMoveSpeed = 3f;
     [SerializeField] private float shoeExitJumpForce = 12f;
 
     [Header("Collectables")]
     [SerializeField] public int points = 0;
+    [SerializeField] private TextMeshProUGUI pointText;
 
     [Header("Controllo muri")]
     [SerializeField] private Transform wallCheckRight;
     [SerializeField] private Transform wallCheckLeft;
     [SerializeField] private float wallCheckRadius = 0.15f;
     [SerializeField] private LayerMask wallLayer;
+
+    [Header("Animazioni")]
+    [SerializeField] private float moveAnimThreshold = 0.05f;
+
+    // Nomi/hash dei parametri dell'Animator
+    private static readonly int AnimIsMoving = Animator.StringToHash("isMoving");
+    private static readonly int AnimIsJumping = Animator.StringToHash("isJumping");
+    private static readonly int AnimIsInShoe = Animator.StringToHash("isInShoe");
+    private static readonly int AnimDeath = Animator.StringToHash("Death");
+    private static readonly int AnimAlive = Animator.StringToHash("isAlive");
+
+    private Animator animator;
 
     private Rigidbody2D rb;
     private Shoos currentShoe;
@@ -44,10 +56,7 @@ public class Player : MonoBehaviour
 
     private InputAction playerMoveAction;
     private InputAction jumpAction;
-    private InputAction shoeMoveAction;
     private InputAction shoeJumpAction;
-
-    private InputAction activeMoveAction;
 
     private float moveInput;
     private bool jumpPressed;
@@ -59,6 +68,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
         playerMap = inputActions.FindActionMap(actionMapName, throwIfNotFound: true);
@@ -66,8 +76,8 @@ public class Player : MonoBehaviour
 
         playerMoveAction = playerMap.FindAction(moveActionName, throwIfNotFound: true);
         jumpAction = playerMap.FindAction(jumpActionName, throwIfNotFound: true);
-        shoeMoveAction = shoeMap.FindAction(shoeMoveActionName, throwIfNotFound: true);
         shoeJumpAction = shoeMap.FindAction(shoeJumpActionName, throwIfNotFound: true);
+        UpdatePoints();
     }
 
     private void OnEnable()
@@ -114,14 +124,12 @@ public class Player : MonoBehaviour
         if (useShoe)
         {
             playerMap.Disable();
-            shoeMap.Enable();
-            activeMoveAction = shoeMoveAction;
+            shoeMap.Enable(); // serve solo per l'azione Jump (uscita dalla scarpa)
         }
         else
         {
             shoeMap.Disable();
             playerMap.Enable();
-            activeMoveAction = playerMoveAction;
         }
     }
 
@@ -140,7 +148,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        moveInput = activeMoveAction.ReadValue<float>();
+        // Nella scarpa il player non si muove di sua iniziativa (ci pensa la scarpa stessa):
+        // l'unico input valido è il salto per uscirne.
+        moveInput = inShoes ? 0f : playerMoveAction.ReadValue<float>();
 
         isGrounded = groundCheck != null &&
                      Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -168,12 +178,32 @@ public class Player : MonoBehaviour
 
         if (moveInput > 0 && !facingRight) Flip();
         else if (moveInput < 0 && facingRight) Flip();
+
+        UpdateAnimator();
+    }
+
+    private void UpdateAnimator()
+    {
+        if (animator == null) return;
+
+        animator.SetBool(AnimIsMoving, Mathf.Abs(moveInput) > moveAnimThreshold);
+        animator.SetBool(AnimIsJumping, !isGrounded);
+        animator.SetBool(AnimIsInShoe, inShoes);
+    }
+
+    public void Die()
+    {
+        if (animator != null) animator.SetTrigger(AnimDeath);
+    }
+
+    public void Alive()
+    {
+        if (animator != null) animator.SetTrigger(AnimAlive);
     }
 
     private void FixedUpdate()
     {
-        float currentSpeed = inShoes ? shoeMoveSpeed : moveSpeed;
-        float desiredMoveX = moveInput * currentSpeed;
+        float desiredMoveX = moveInput * moveSpeed;
 
         if (desiredMoveX > 0f && isTouchingWallRight) desiredMoveX = 0f;
         if (desiredMoveX < 0f && isTouchingWallLeft) desiredMoveX = 0f;
@@ -218,5 +248,10 @@ public class Player : MonoBehaviour
     {
         rb.simulated = true;
         ApplyMovementMode(inShoes);
+    }
+
+    public void UpdatePoints()
+    {
+        pointText.text = points.ToString();
     }
 }

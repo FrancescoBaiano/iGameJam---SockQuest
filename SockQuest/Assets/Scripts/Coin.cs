@@ -25,7 +25,9 @@ public class Coin : MonoBehaviour
 
     private void Collect(Player player)
     {
+        GetComponent<Collider2D>().enabled = false;
         player.points += 1;
+        player.UpdatePoints();
         StartCoroutine(HandleDestruction());
     }
 
