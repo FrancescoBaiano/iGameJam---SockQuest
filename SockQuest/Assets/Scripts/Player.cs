@@ -1,7 +1,9 @@
 using System.Collections;
 using TMPro;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -22,8 +24,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.15f;
     [SerializeField] private LayerMask groundLayer;
 
-    [Header("SpawnPoint")]
+    [Header("OnDeath")]
     [SerializeField] Transform spawnPoint;
+    [SerializeField] private float repositionTime = 2f;
+    [SerializeField] private Animator scopaAnimator;
+    [SerializeField] private Animator fadePanelAnimator;
 
     public Transform GroundCheck => groundCheck;
     public float GroundCheckRadius => groundCheckRadius;
@@ -161,18 +166,21 @@ public class Player : MonoBehaviour
     {
         DisablePlayer();
         if (animator != null) animator.SetTrigger(AnimDeath);
+        if (scopaAnimator != null) scopaAnimator.SetTrigger("PlayerDeath");
+        if (fadePanelAnimator != null) fadePanelAnimator.SetTrigger("FadeOut");
         StartCoroutine(RepositionPlayer(this));
     }
 
     private IEnumerator RepositionPlayer(Player player)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(repositionTime);
         if (spawnPoint != null)
             player.transform.position = spawnPoint.position;
         else
             player.transform.position = Vector3.zero;
         player.EnablePlayer();
         player.Alive();
+        if (fadePanelAnimator != null) fadePanelAnimator.SetTrigger("FadeIn");
     }
 
     public void Alive()
