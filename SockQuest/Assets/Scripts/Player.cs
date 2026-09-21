@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +21,9 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.15f;
     [SerializeField] private LayerMask groundLayer;
+
+    [Header("SpawnPoint")]
+    [SerializeField] Transform spawnPoint;
 
     public Transform GroundCheck => groundCheck;
     public float GroundCheckRadius => groundCheckRadius;
@@ -155,7 +159,20 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        DisablePlayer();
         if (animator != null) animator.SetTrigger(AnimDeath);
+        StartCoroutine(RepositionPlayer(this));
+    }
+
+    private IEnumerator RepositionPlayer(Player player)
+    {
+        yield return new WaitForSeconds(2f);
+        if (spawnPoint != null)
+            player.transform.position = spawnPoint.position;
+        else
+            player.transform.position = Vector3.zero;
+        player.EnablePlayer();
+        player.Alive();
     }
 
     public void Alive()

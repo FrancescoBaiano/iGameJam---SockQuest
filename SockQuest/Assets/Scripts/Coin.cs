@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent (typeof(CircleCollider2D))]
 public class Coin : MonoBehaviour
 {
+    [SerializeField] private float collectTime = 0.5f;
+
     private void Start()
     {
         CircleCollider2D collider2D = GetComponent<CircleCollider2D>();
@@ -33,7 +35,7 @@ public class Coin : MonoBehaviour
 
     private IEnumerator HandleDestruction()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(collectTime);
         Destroy(gameObject);
     }
 }

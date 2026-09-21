@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class DeathBox : MonoBehaviour
 {
-    [SerializeField] Transform spawnPoint;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,20 +17,7 @@ public class DeathBox : MonoBehaviour
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null && !player.inShoe)
         {
-            StartCoroutine(RepositionPlayer(player));
+            player.Die();
         }
-    }
-
-    private IEnumerator RepositionPlayer(Player player)
-    {
-        player.DisablePlayer();
-        player.Die();
-        yield return new WaitForSeconds(2f);
-        if (spawnPoint != null)
-            player.transform.position = spawnPoint.position;
-        else
-            player.transform.position = Vector3.zero;
-        player.EnablePlayer();
-        player.Alive();
-    }
+    }    
 }

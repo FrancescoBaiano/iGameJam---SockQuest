@@ -214,7 +214,7 @@ public class CouppleEnemy : MonoBehaviour
         float currentDist = Mathf.Abs(distanceX);
         if (pushTimer >= pushInterval && currentDist <= pushRange)
         {
-            animator.speed = normalAnimSpeed;
+            //animator.speed = normalAnimSpeed;
             PushPlayer(direction);
 
             currentState = State.Cooldown;
