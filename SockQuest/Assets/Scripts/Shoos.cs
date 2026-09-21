@@ -1,4 +1,3 @@
-using System.Collections;
 using Unity.Multiplayer.PlayMode;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -101,7 +100,12 @@ public class Shoos : MonoBehaviour
         player.GetComponentInChildren<SpriteRenderer>().enabled = false;
         player.inShoe = true;
 
-        GetComponent<BoxCollider2D>().enabled = false;
+        // NON disabilito più il BoxCollider2D qui: è lo stesso collider che altri
+        // scarponi usano (tramite il layer) per rilevarmi come ostacolo nel loro
+        // wallCheck. Disabilitandolo, uno scarpone occupato dal player "spariva"
+        // per gli altri, che continuavano ad attraversarlo. La guardia
+        // "currentPlayer != null" in OnTriggerEnter2D basta già a evitare un
+        // secondo ingresso mentre è occupato.
 
         // Riabilito SOLO l'azione Jump (stessa action usata dal player normalmente),
         // senza toccare il resto della map che il player ha appena disabilitato.
@@ -112,10 +116,10 @@ public class Shoos : MonoBehaviour
 
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
-        if (currentPlayer != null) StartCoroutine(PlayerExit());
+        if (currentPlayer != null) PlayerExit();
     }
 
-    private IEnumerator PlayerExit()
+    private void PlayerExit()
     {
         currentPlayer.GetComponentInChildren<SpriteRenderer>().enabled = true;
         currentPlayer.transform.parent = null;
@@ -132,9 +136,6 @@ public class Shoos : MonoBehaviour
         currentPlayerRb = null;
 
         if (animator != null) animator.SetBool(AnimPlayerInside, false);
-
-        yield return new WaitForSeconds(1f);
-        GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private void OnDrawGizmosSelected()
