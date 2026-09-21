@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class BallEnemy : MonoBehaviour
 {
-    private enum State { Patrolling, Chasing, Stopped }
+    private enum State { Patrolling, Chasing, Stopped, PausedAbove }
 
     [Header("Patrol")]
     [SerializeField] private Transform pointA;
@@ -29,6 +29,13 @@ public class BallEnemy : MonoBehaviour
     [Tooltip("Tempo di attesa in secondi dopo aver colpito il Player prima di riprendere la pattuglia.")]
     [SerializeField] private float stopDuration = 5f;
 
+    [Header("Pausa Player Sopra")]
+    [Tooltip("Punto usato per controllare se il player è sopra il nemico.")]
+    [SerializeField] private Transform aboveCheck;
+    [SerializeField] private float aboveCheckRadius = 0.6f;
+    [Tooltip("Quanto resta fermo se il player gli passa sopra, prima di riprendere quello che stava facendo.")]
+    [SerializeField] private float pauseWhenAboveDuration = 2f;
+
     [Header("Animazioni")]
     [SerializeField] private float chaseAnimSpeed = 2f;
     [SerializeField] private float normalAnimSpeed = 1f;
@@ -49,12 +56,14 @@ public class BallEnemy : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private State currentState = State.Patrolling;
+    private State stateBeforePause;
 
     private Transform currentPatrolTarget;
     private Transform playerTransform;
 
     private bool facingRight = true;
     private float stopTimer;
+    private float aboveTimer;
 
     private void Awake()
     {
@@ -69,6 +78,15 @@ public class BallEnemy : MonoBehaviour
 
     private void Update()
     {
+        // Il controllo "player sopra" ha priorità sul comportamento normale,
+        // ma solo mentre il nemico si sta effettivamente muovendo da solo
+        // (non durante la pausa post-colpito, né mentre è già in questa pausa).
+        if ((currentState == State.Patrolling || currentState == State.Chasing) && IsPlayerAbove())
+        {
+            PauseForPlayerAbove();
+            return;
+        }
+
         switch (currentState)
         {
             case State.Patrolling:
@@ -82,6 +100,10 @@ public class BallEnemy : MonoBehaviour
 
             case State.Stopped:
                 HandleStopped();
+                break;
+
+            case State.PausedAbove:
+                HandlePausedAbove();
                 break;
         }
     }
@@ -165,6 +187,47 @@ public class BallEnemy : MonoBehaviour
         Vector2 origin = (Vector2)transform.position + new Vector2(direction * groundCheckOffset, 0f);
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, groundCheckDistance, groundLayer);
         return hit.collider != null;
+    }
+
+    private bool IsPlayerAbove()
+    {
+        if (aboveCheck == null) return false;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(aboveCheck.position, aboveCheckRadius);
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.gameObject == gameObject) continue;
+            if (hit.TryGetComponent<Player>(out _)) return true;
+        }
+
+        return false;
+    }
+
+    private void PauseForPlayerAbove()
+    {
+        if (showDebugLogs) Debug.Log("[BallEnemy] Player sopra di me, mi fermo per " + pauseWhenAboveDuration + " secondi.");
+
+        stateBeforePause = currentState;
+        currentState = State.PausedAbove;
+        aboveTimer = pauseWhenAboveDuration;
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+
+        if (animator != null) animator.SetBool(AnimIsPause, true);
+    }
+
+    private void HandlePausedAbove()
+    {
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+        aboveTimer -= Time.deltaTime;
+
+        if (aboveTimer <= 0f)
+        {
+            if (showDebugLogs) Debug.Log("[BallEnemy] Riprendo quello che stavo facendo.");
+
+            currentState = stateBeforePause;
+
+            if (animator != null) animator.SetBool(AnimIsPause, false);
+        }
     }
 
     private void StartChasing(Player player)
@@ -297,5 +360,11 @@ public class BallEnemy : MonoBehaviour
         Vector2 groundOrigin = (Vector2)transform.position + new Vector2(checkDir * groundCheckOffset, 0f);
         Gizmos.color = Color.green;
         Gizmos.DrawLine(groundOrigin, groundOrigin + Vector2.down * groundCheckDistance);
+
+        if (aboveCheck != null)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(aboveCheck.position, aboveCheckRadius);
+        }
     }
 }

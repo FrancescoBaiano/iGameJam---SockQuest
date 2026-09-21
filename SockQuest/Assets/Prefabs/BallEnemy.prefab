@@ -93,7 +93,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.39, y: 1.39, z: 1.39}
+  m_LocalScale: {x: 1.8199999, y: 1.8199999, z: 1.8199999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7763589780641069670}
@@ -214,7 +214,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.66
+  m_Radius: 0.67
 --- !u!50 &3336726936488361557
 Rigidbody2D:
   serializedVersion: 5
@@ -267,7 +267,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheckOffset: 0.5
-  groundCheckDistance: 1.33
+  groundCheckDistance: 1.47
   chaseSpeed: 5
   stopDuration: 5
   chaseAnimSpeed: 2
