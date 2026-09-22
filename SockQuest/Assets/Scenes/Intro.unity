@@ -279,9 +279,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 532702803}
-  - component: {fileID: 532702802}
   - component: {fileID: 532702801}
   - component: {fileID: 532702800}
+  - component: {fileID: 532702802}
   m_Layer: 0
   m_Name: VideoManager
   m_TagString: Untagged
