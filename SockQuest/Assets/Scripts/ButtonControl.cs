@@ -6,7 +6,7 @@ public class ButtonControl : MonoBehaviour
 {
     [SerializeField] private string menuLevelName;
 
-    public void ReturnToMenu()
+    public void ChangeScene()
     {
         StartCoroutine(ExitLevel());
     }
@@ -17,5 +17,8 @@ public class ButtonControl : MonoBehaviour
         SceneManager.LoadScene(menuLevelName);
     }
 
-
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
