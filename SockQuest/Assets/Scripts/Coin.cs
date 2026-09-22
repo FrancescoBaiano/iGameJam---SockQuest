@@ -21,6 +21,7 @@ public class Coin : MonoBehaviour
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null)
         {
+            GetComponent<AudioSource>().Play();
             Collect(player);
         }
     }

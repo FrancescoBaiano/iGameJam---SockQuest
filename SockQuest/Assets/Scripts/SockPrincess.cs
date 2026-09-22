@@ -8,6 +8,10 @@ public class SockPrincess : MonoBehaviour
 {
     [SerializeField] private string nextLevelName;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip levelCompleteClip;
+
     private void Start()
     {
         GetComponent<BoxCollider2D>().isTrigger = true;
@@ -25,6 +29,10 @@ public class SockPrincess : MonoBehaviour
     private IEnumerator LoadNextLevel(Player player)
     {
         player.DisablePlayer();
+
+        if (audioSource != null && levelCompleteClip != null)
+            audioSource.PlayOneShot(levelCompleteClip);
+
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(nextLevelName);
     }

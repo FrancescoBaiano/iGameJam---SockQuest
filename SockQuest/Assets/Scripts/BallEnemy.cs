@@ -46,6 +46,16 @@ public class BallEnemy : MonoBehaviour
     [Tooltip("Attiva se lo sprite risulta capovolto/invertito rispetto al movimento.")]
     [SerializeField] private bool invertSpriteFacing = false;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip moveClip;
+    [Tooltip("Pitch riprodotto durante la pattuglia normale.")]
+    [SerializeField] private float basePitch = 1f;
+    [Tooltip("Pitch riprodotto durante l'inseguimento (velocità maggiore).")]
+    [SerializeField] private float chasePitch = 1.5f;
+    [Tooltip("Quanto velocemente il pitch transita verso il target (unità di pitch al secondo).")]
+    [SerializeField] private float pitchLerpSpeed = 4f;
+
     [Header("Debug")]
     [SerializeField] private bool showDebugLogs = true;
 
@@ -74,6 +84,13 @@ public class BallEnemy : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         ApplySpriteFacing();
+
+        if (audioSource != null)
+        {
+            audioSource.clip = moveClip;
+            audioSource.loop = true;
+            audioSource.pitch = basePitch;
+        }
     }
 
     private void Update()
@@ -113,6 +130,8 @@ public class BallEnemy : MonoBehaviour
                 HandlePausedAbove();
                 break;
         }
+
+        UpdateMovementSound();
     }
 
     private void Patrol()
@@ -220,6 +239,8 @@ public class BallEnemy : MonoBehaviour
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
         if (animator != null) animator.SetBool(AnimIsPause, true);
+
+        UpdateMovementSound();
     }
 
     private void HandlePausedAbove()
@@ -301,6 +322,31 @@ public class BallEnemy : MonoBehaviour
         }
     }
 
+    // --- AUDIO ---
+
+    private void UpdateMovementSound()
+    {
+        if (audioSource == null || moveClip == null) return;
+
+        // Suona solo mentre il nemico si muove davvero da solo: pattuglia o inseguimento.
+        // Fermo, in pausa post-colpito o in pausa "player sopra" -> silenzio.
+        bool shouldPlay = currentState == State.Patrolling || currentState == State.Chasing;
+
+        if (shouldPlay)
+        {
+            if (!audioSource.isPlaying) audioSource.Play();
+
+            float targetPitch = currentState == State.Chasing ? chasePitch : basePitch;
+            audioSource.pitch = Mathf.MoveTowards(audioSource.pitch, targetPitch, pitchLerpSpeed * Time.deltaTime);
+        }
+        else if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
+
+    // --- FINE AUDIO ---
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (PauseController.Instance.IsPaused) return;
@@ -320,6 +366,8 @@ public class BallEnemy : MonoBehaviour
             animator.speed = normalAnimSpeed;
             animator.SetBool(AnimIsPause, true);
         }
+
+        UpdateMovementSound();
 
         player.Die();
     }

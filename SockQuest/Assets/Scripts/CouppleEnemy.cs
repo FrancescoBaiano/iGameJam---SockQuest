@@ -54,6 +54,13 @@ public class CouppleEnemy : MonoBehaviour
              "Corregge il verso in cui viene flippato lo sprite senza toccare la logica di movimento/visione.")]
     [SerializeField] private bool spriteFacesLeftByDefault = false;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource movementAudioSource; // loop: camminata / corsa
+    [SerializeField] private AudioSource kickAudioSource;      // one-shot: calcio
+    [SerializeField] private AudioClip walkClip;
+    [SerializeField] private AudioClip runClip;
+    [SerializeField] private AudioClip kickClip;
+
     [Header("Debug")]
     [SerializeField] private bool showDebugLogs = true;
 
@@ -84,6 +91,11 @@ public class CouppleEnemy : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         ApplySpriteFacing();
+
+        if (movementAudioSource != null)
+        {
+            movementAudioSource.loop = true;
+        }
     }
 
     private void Update()
@@ -121,6 +133,8 @@ public class CouppleEnemy : MonoBehaviour
                 HandlePause();
                 break;
         }
+
+        UpdateMovementSound();
     }
 
     private bool CheckPlayerOnTop()
@@ -158,6 +172,8 @@ public class CouppleEnemy : MonoBehaviour
         rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
         if (animator != null) animator.speed = normalAnimSpeed;
+
+        UpdateMovementSound();
     }
 
     private void HandlePause()
@@ -349,6 +365,8 @@ public class CouppleEnemy : MonoBehaviour
 
         if (animator != null) animator.SetTrigger(AnimIsAttacking);
 
+        PlayKickSound();
+
         Vector2 forceVector = new Vector2(direction * pushForce, pushUpForce);
 
         // Cerca lo script Player e applica il knockback con blocco input temporaneo
@@ -381,6 +399,45 @@ public class CouppleEnemy : MonoBehaviour
             animator.SetTrigger(AnimMove);
         }
     }
+
+    // --- AUDIO ---
+
+    private void UpdateMovementSound()
+    {
+        if (movementAudioSource == null) return;
+
+        // Cammina in pattuglia, corre in inseguimento; fermo in Cooldown e Paused -> silenzio.
+        AudioClip desiredClip = currentState switch
+        {
+            State.Patrolling => walkClip,
+            State.Chasing => runClip,
+            _ => null
+        };
+
+        if (desiredClip == null)
+        {
+            if (movementAudioSource.isPlaying) movementAudioSource.Stop();
+            return;
+        }
+
+        if (movementAudioSource.clip != desiredClip)
+        {
+            movementAudioSource.clip = desiredClip;
+            movementAudioSource.Play();
+        }
+        else if (!movementAudioSource.isPlaying)
+        {
+            movementAudioSource.Play();
+        }
+    }
+
+    private void PlayKickSound()
+    {
+        if (kickAudioSource != null && kickClip != null)
+            kickAudioSource.PlayOneShot(kickClip);
+    }
+
+    // --- FINE AUDIO ---
 
     private void FaceDirection(float direction)
     {

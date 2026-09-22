@@ -45,6 +45,14 @@ public class Player : MonoBehaviour
     [Header("Animazioni")]
     [SerializeField] private float moveAnimThreshold = 0.05f;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;      // per SFX one-shot: salto, morte
+    [SerializeField] private AudioSource walkAudioSource;   // dedicato al loop dei passi
+    [SerializeField] private AudioSource scopaAudioSource;
+    [SerializeField] private AudioClip walkClip;
+    [SerializeField] private AudioClip jumpClip;
+    [SerializeField] private AudioClip deathClip;
+
     // Nomi/hash dei parametri dell'Animator
     private static readonly int AnimIsMoving = Animator.StringToHash("isMoving");
     private static readonly int AnimIsJumping = Animator.StringToHash("isJumping");
@@ -79,6 +87,12 @@ public class Player : MonoBehaviour
         jumpAction = playerMap.FindAction(jumpActionName, throwIfNotFound: true);
 
         UpdatePoints();
+
+        if (walkAudioSource != null)
+        {
+            walkAudioSource.clip = walkClip;
+            walkAudioSource.loop = true;
+        }
     }
 
     private void OnEnable()
@@ -119,6 +133,7 @@ public class Player : MonoBehaviour
                 isKnockedBack = false;
             }
 
+            StopWalkSound();
             return; // Salta la lettura degli input finché non è atterrato
         }
 
@@ -139,6 +154,7 @@ public class Player : MonoBehaviour
         else if (moveInput < 0 && facingRight) Flip();
 
         UpdateAnimator();
+        UpdateWalkSound();
     }
 
     private void FixedUpdate()
@@ -170,9 +186,51 @@ public class Player : MonoBehaviour
         animator.SetBool(AnimIsInShoe, inShoe);
     }
 
+    // --- AUDIO ---
+
+    private void UpdateWalkSound()
+    {
+        if (walkAudioSource == null || walkClip == null) return;
+
+        // Cammina solo se: si sta muovendo abbastanza, è a terra, non è nella scarpa e non è knockback
+        bool shouldWalk = Mathf.Abs(moveInput) > moveAnimThreshold && isGrounded && !inShoe;
+
+        if (shouldWalk && !walkAudioSource.isPlaying)
+        {
+            walkAudioSource.Play();
+        }
+        else if (!shouldWalk && walkAudioSource.isPlaying)
+        {
+            walkAudioSource.Stop();
+        }
+    }
+
+    private void StopWalkSound()
+    {
+        if (walkAudioSource != null && walkAudioSource.isPlaying)
+            walkAudioSource.Stop();
+    }
+
+    private void PlayJumpSound()
+    {
+        if (audioSource != null && jumpClip != null)
+            audioSource.PlayOneShot(jumpClip);
+    }
+
+    private void PlayDeathSound()
+    {
+        if (audioSource != null && deathClip != null)
+            audioSource.PlayOneShot(deathClip);
+        scopaAudioSource.mute = false;
+    }
+
+    // --- FINE AUDIO ---
+
     public void Die()
     {
         DisablePlayer();
+        StopWalkSound();
+        PlayDeathSound();
         if (animator != null) animator.SetTrigger(AnimDeath);
         if (scopaAnimator != null) scopaAnimator.SetTrigger("PlayerDeath");
         if (fadePanelAnimator != null) fadePanelAnimator.SetTrigger("FadeOut");
@@ -186,6 +244,7 @@ public class Player : MonoBehaviour
             player.transform.position = spawnPoint.position;
         else
             player.transform.position = Vector3.zero;
+        scopaAudioSource.mute = true;
         player.EnablePlayer();
         player.Alive();
         if (fadePanelAnimator != null) fadePanelAnimator.SetTrigger("FadeIn");
@@ -201,6 +260,7 @@ public class Player : MonoBehaviour
         if (force < 0f) force = jumpForce;
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+        PlayJumpSound();
     }
 
     private void Flip()
