@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SockPrincess : MonoBehaviour
 {
     [SerializeField] private string nextLevelName;
+    [SerializeField] private float secondsToWait = 4f;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
@@ -33,7 +34,9 @@ public class SockPrincess : MonoBehaviour
         if (audioSource != null && levelCompleteClip != null)
             audioSource.PlayOneShot(levelCompleteClip);
 
-        yield return new WaitForSeconds(3f);
+        player.FadeOut();
+
+        yield return new WaitForSeconds(secondsToWait);
         SceneManager.LoadScene(nextLevelName);
     }
 }

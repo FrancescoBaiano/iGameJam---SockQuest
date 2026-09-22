@@ -233,8 +233,13 @@ public class Player : MonoBehaviour
         PlayDeathSound();
         if (animator != null) animator.SetTrigger(AnimDeath);
         if (scopaAnimator != null) scopaAnimator.SetTrigger("PlayerDeath");
-        if (fadePanelAnimator != null) fadePanelAnimator.SetTrigger("FadeOut");
+        FadeOut();
         StartCoroutine(RepositionPlayer(this));
+    }
+
+    public void FadeOut()
+    {
+        if (fadePanelAnimator != null) fadePanelAnimator.SetTrigger("FadeOut");
     }
 
     private IEnumerator RepositionPlayer(Player player)
@@ -247,6 +252,11 @@ public class Player : MonoBehaviour
         scopaAudioSource.mute = true;
         player.EnablePlayer();
         player.Alive();
+        FadeIn();
+    }
+
+    public void FadeIn()
+    {
         if (fadePanelAnimator != null) fadePanelAnimator.SetTrigger("FadeIn");
     }
 
