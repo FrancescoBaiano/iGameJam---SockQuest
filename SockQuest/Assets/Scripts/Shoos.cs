@@ -1,4 +1,4 @@
-using Unity.Multiplayer.PlayMode;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +12,7 @@ public class Shoos : MonoBehaviour
 
     [Header("Uscita")]
     [SerializeField] private float exitJumpForce = 12f;
+    [SerializeField] private float exitGraceDuration = 0.2f;
 
     [Header("Movimento autonomo")]
     [SerializeField] private float moveSpeed = 3f;
@@ -31,6 +32,8 @@ public class Shoos : MonoBehaviour
 
     private int direction = 1; // 1 = destra, -1 = sinistra
     private SpriteRenderer spriteRenderer;
+
+    private bool ignoreEntryTemporarily;
 
     private void Awake()
     {
@@ -58,6 +61,13 @@ public class Shoos : MonoBehaviour
 
     private void Update()
     {
+        if (PauseController.Instance.IsPaused)
+        {
+            animator.enabled = false;
+            return;
+        }
+        animator.enabled = true;
+
         HandleAutonomousMovement();
     }
 
@@ -79,6 +89,7 @@ public class Shoos : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (currentPlayer != null) return; // già occupata
+        if (ignoreEntryTemporarily) return;
 
         Player player = collision.GetComponent<Player>();
         if (player != null)
@@ -116,6 +127,7 @@ public class Shoos : MonoBehaviour
 
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
+        if (PauseController.Instance.IsPaused) return;
         if (currentPlayer != null) PlayerExit();
     }
 
@@ -136,6 +148,13 @@ public class Shoos : MonoBehaviour
         currentPlayerRb = null;
 
         if (animator != null) animator.SetBool(AnimPlayerInside, false);
+        StartCoroutine(ExitGracePeriod());
+    }
+    private IEnumerator ExitGracePeriod()
+    {
+        ignoreEntryTemporarily = true;
+        yield return new WaitForSeconds(exitGraceDuration);
+        ignoreEntryTemporarily = false;
     }
 
     private void OnDrawGizmosSelected()

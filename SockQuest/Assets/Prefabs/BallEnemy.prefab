@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &136240222945106390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 256721445402414798}
+  m_Layer: 0
+  m_Name: AboveChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &256721445402414798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136240222945106390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.723, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6477470234134719499}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1558702153486476462
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +126,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.8199999, y: 1.8199999, z: 1.8199999}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 256721445402414798}
   m_Father: {fileID: 7763589780641069670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6952502010728707459
@@ -214,7 +246,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.67
+  m_Radius: 0.61
 --- !u!50 &3336726936488361557
 Rigidbody2D:
   serializedVersion: 5
@@ -258,7 +290,7 @@ MonoBehaviour:
   pointB: {fileID: 4520301502095837360}
   patrolSpeed: 1.5
   patrolArriveThreshold: 0.1
-  visionRange: 5
+  visionRange: 6
   visionHeight: -0.54
   obstacleLayer:
     serializedVersion: 2
@@ -270,6 +302,9 @@ MonoBehaviour:
   groundCheckDistance: 1.47
   chaseSpeed: 5
   stopDuration: 5
+  aboveCheck: {fileID: 256721445402414798}
+  aboveCheckRadius: 0.6
+  pauseWhenAboveDuration: 2
   chaseAnimSpeed: 2
   normalAnimSpeed: 1
   spriteFacesLeftByDefault: 1

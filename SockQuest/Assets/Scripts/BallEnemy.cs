@@ -78,6 +78,13 @@ public class BallEnemy : MonoBehaviour
 
     private void Update()
     {
+        if (PauseController.Instance.IsPaused)
+        {
+            rb.linearVelocity = Vector2.zero;
+            animator.enabled = false;
+            return;
+        }
+        animator.enabled = true;
         // Il controllo "player sopra" ha priorità sul comportamento normale,
         // ma solo mentre il nemico si sta effettivamente muovendo da solo
         // (non durante la pausa post-colpito, né mentre è già in questa pausa).
@@ -296,6 +303,7 @@ public class BallEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (PauseController.Instance.IsPaused) return;
         if (currentState == State.Stopped) return;
 
         Player player = collision.gameObject.GetComponent<Player>();

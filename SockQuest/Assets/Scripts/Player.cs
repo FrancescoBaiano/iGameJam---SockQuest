@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -101,6 +100,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (PauseController.Instance.IsPaused) return;
+
         // 1. Calcoliamo PRIMA se il player è a terra
         isGrounded = groundCheck != null && Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
@@ -142,7 +143,14 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // MODIFICA FONDAMENTALE: Se è in corso la spinta o se è nella scarpa, non sovrascrivere la fisica
+        if (PauseController.Instance.IsPaused)
+        {
+            rb.linearVelocity = Vector2.zero;
+            animator.enabled = false;
+            return;
+        }
+        animator.enabled = true;
+
         if (inShoe || isKnockedBack) return;
 
         float desiredMoveX = moveInput * moveSpeed;

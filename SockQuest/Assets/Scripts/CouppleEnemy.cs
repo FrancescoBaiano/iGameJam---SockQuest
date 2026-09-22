@@ -88,6 +88,14 @@ public class CouppleEnemy : MonoBehaviour
 
     private void Update()
     {
+        if (PauseController.Instance.IsPaused)
+        {
+            rb.linearVelocity = Vector2.zero;
+            animator.enabled = false;
+            return;
+        }
+        animator.enabled = true;
+
         // Controlla sempre se il Player si trova sopra la testa del nemico
         if (currentState != State.Paused && CheckPlayerOnTop())
         {
