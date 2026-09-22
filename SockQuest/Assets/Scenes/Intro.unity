@@ -261,6 +261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6081982154494552366, guid: a5def6f986cbe234a8d181c41097ccfa, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8071851800432657717, guid: a5def6f986cbe234a8d181c41097ccfa, type: 3}
       propertyPath: menuLevelName
       value: Final
@@ -308,6 +312,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7836065710227115861, guid: a5def6f986cbe234a8d181c41097ccfa, type: 3}
     - {fileID: 7590017925790920578, guid: a5def6f986cbe234a8d181c41097ccfa, type: 3}
+    - {fileID: 6081982154494552366, guid: a5def6f986cbe234a8d181c41097ccfa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -506,7 +511,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -598,7 +603,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532702799}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: b843215fef872ad4c80d74d44cc1fa2e, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 64ae510bb63942b48bd23cd1fcfc59c6, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -936,6 +941,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1361029317}
   - {fileID: 864464067}
-  - {fileID: 462178507}
   - {fileID: 532702803}
   - {fileID: 394775548}
+  - {fileID: 462178507}
