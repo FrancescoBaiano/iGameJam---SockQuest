@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   sceneToLoad: End
-  videoName: 
+  videoName: Videos/HALF_OUTRO.webm
 --- !u!4 &532702803
 Transform:
   m_ObjectHideFlags: 0
