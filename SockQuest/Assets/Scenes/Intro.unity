@@ -267,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8071851800432657717, guid: a5def6f986cbe234a8d181c41097ccfa, type: 3}
       propertyPath: menuLevelName
-      value: Final
+      value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 8719264917789899740, guid: a5def6f986cbe234a8d181c41097ccfa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -613,7 +613,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 1
@@ -621,7 +621,7 @@ VideoPlayer:
   - {fileID: 532702800}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: https://raw.githubusercontent.com/FrancescoBaiano/iGameJam---SockQuest/main/HALF%20-%20INTRO.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
