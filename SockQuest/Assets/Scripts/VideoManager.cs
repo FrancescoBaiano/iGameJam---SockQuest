@@ -9,10 +9,18 @@ public class VideoManager : MonoBehaviour
     [SerializeField] private string sceneToLoad = "Livello1";
 
     private VideoPlayer videoPlayer;
+    [SerializeField] private string videoName;
 
     private void Awake()
     {
         videoPlayer = GetComponent<VideoPlayer>();
+    }
+
+    void Start()
+    {
+        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
+        videoPlayer.url = videoPath;
+        videoPlayer.Play();
     }
 
     private void OnEnable()

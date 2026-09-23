@@ -15,6 +15,11 @@ public class PauseController : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        pauseMenuUI.SetActive(false);
+    }
+
     void OnEnable()
     {
         pauseAction.action.Enable();
