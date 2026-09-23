@@ -26,6 +26,7 @@ public class Pillow : MonoBehaviour
 
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
         rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+        GetComponent<Animator>().SetTrigger("doJump");
         GetComponent<AudioSource>().Play();
     }
 
