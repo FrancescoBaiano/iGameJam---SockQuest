@@ -219838,6 +219838,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1317890053258837835, guid: 0339826ae409d8549ac0bd2bba96b5c7, type: 3}
+      propertyPath: nextLevelName
+      value: Ending
+      objectReference: {fileID: 0}
+    - target: {fileID: 1317890053258837835, guid: 0339826ae409d8549ac0bd2bba96b5c7, type: 3}
+      propertyPath: secondsToWait
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5238857821679732093, guid: 0339826ae409d8549ac0bd2bba96b5c7, type: 3}
       propertyPath: m_Name
       value: End
