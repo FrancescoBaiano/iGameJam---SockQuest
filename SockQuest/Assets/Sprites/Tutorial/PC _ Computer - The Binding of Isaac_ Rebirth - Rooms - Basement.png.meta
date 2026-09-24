@@ -1,0 +1,225 @@
+fileFormatVersion: 2
+guid: e369645db526fb845b4eee61f8d3016d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6318342038823926711
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_0
+  - first:
+      213: -4458665519355842980
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_1
+  - first:
+      213: 9178233952827075508
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_2
+  - first:
+      213: 7468729340989063912
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_3
+  - first:
+      213: -2139218336534523765
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_4
+  - first:
+      213: -2309678267928489305
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_5
+  - first:
+      213: -7691657303232922477
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_6
+  - first:
+      213: 4201554807640043786
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_7
+  - first:
+      213: 80297400149139298
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_8
+  - first:
+      213: 2957249531648729023
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_9
+  - first:
+      213: -8873530128298339235
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_10
+  - first:
+      213: -960929920778017649
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_11
+  - first:
+      213: 3932099399264760416
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_12
+  - first:
+      213: -2563476274233509927
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_13
+  - first:
+      213: 3055529982278616851
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_14
+  - first:
+      213: -5239252891817769484
+    second: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 79
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9448b76446db058a0800000000000000
+      internalID: -6318342038823926711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 51
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0c4cee704ae794f932a8d4cf635bdf
+      internalID: -4458665519355842980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e5ce106792b6a747bc6d46155f059ea
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_0: -6318342038823926711
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_1: -4458665519355842980
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_10: -8873530128298339235
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_11: -960929920778017649
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_12: 3932099399264760416
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_13: -2563476274233509927
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_14: 3055529982278616851
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_15: -5239252891817769484
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_2: 9178233952827075508
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_3: 7468729340989063912
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_4: -2139218336534523765
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_5: -2309678267928489305
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_6: -7691657303232922477
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_7: 4201554807640043786
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_8: 80297400149139298
+      PC _ Computer - The Binding of Isaac_ Rebirth - Rooms - Basement_9: 2957249531648729023
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
