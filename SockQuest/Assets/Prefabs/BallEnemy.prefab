@@ -178,7 +178,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6688943019188349590, guid: fcad19a44ecf0e34c8770940310a6365, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -291,8 +291,8 @@ MonoBehaviour:
   pointB: {fileID: 4520301502095837360}
   patrolSpeed: 1.5
   patrolArriveThreshold: 0.1
-  visionRange: 6
-  visionHeight: -0.54
+  visionRange: 10
+  visionHeight: -0.5
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -304,8 +304,8 @@ MonoBehaviour:
   chaseSpeed: 5
   stopDuration: 5
   aboveCheck: {fileID: 256721445402414798}
-  aboveCheckRadius: 0.6
-  pauseWhenAboveDuration: 2
+  aboveCheckRadius: 0.4
+  pauseWhenAboveDuration: 1
   chaseAnimSpeed: 2
   normalAnimSpeed: 1
   spriteFacesLeftByDefault: 1
